@@ -44,6 +44,38 @@ const ID_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 
 const MAIL_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: 2 }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" }));
 
 // --- COMPONENTS ---
+
+const PropertyDescription = () => {
+    return e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
+        e("h2", { className: "text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-3" }, "About The Property"),
+        e("div", { className: "space-y-4 text-sm text-gray-700 mt-4 leading-relaxed" },
+            e("p", null, "Suite C-28B at 700 W 23rd Street, located in the well-established Corporate Office Park in Panama City, FL. This 2,015 ± SF office suite offers a highly functional floor plan with a professional image and ample natural light. Designed for efficiency and comfort, the suite features a mix of private offices, open workspace, and client-friendly amenities. The property benefits from General Commercial (GC-2 | Panama City) zoning, allowing for a wide range of office and professional service uses. Estimated Operating Expenses (Additional Rent) are currently $4.00/SF."),
+            e("p", null, "Corporate Office Park enjoys a prime location one block north of 23rd Street, Panama City's dominant retail and commercial corridor. The property provides excellent accessibility to Gulf Coast Medical Center, HCA Florida Gulf Coast Hospital, and Ascension Sacred Heart Bay Hospital, as well as banking, dining, and service amenities along 23rd Street. With ample surface parking and convenient ingress/egress, the property is a strong fit for professional services or administrative operations seeking a central Panama City address.")
+        )
+    );
+};
+
+const BuildingHighlights = () => {
+    const highlights = [
+        "2,015 ± SF office suite with efficient professional layout",
+        "6 private offices, including an executive office with en-suite restroom",
+        "3 restrooms (including one with lobby access)",
+        "29’ x 22’ open work area suitable for collaborative workspace or cubicles",
+        "Large meeting/conference room and dedicated reception/waiting area",
+        "Kitchen/breakroom for staff convenience",
+        "Ample surface parking for staff and clients",
+        "Located one block from 23rd Street retail corridor",
+        "Centrally located near Gulf Coast & Sacred Heart hospitals"
+    ];
+    return e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
+        e("h2", { className: "text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-3" }, "Building Highlights"),
+        e("ul", { className: "list-disc list-inside space-y-2 text-sm text-gray-700 mt-4" },
+            highlights.map((item, index) => e("li", { key: index }, item))
+        )
+    );
+};
+
+
 const ImageGallery = ({ images }) => {
     const [currentIndex, setCurrentIndex] = React.useState(0);
     
@@ -111,7 +143,7 @@ const ContactCard = ({ contact }) => {
                 ),
                 e("p", { className: "text-sm text-gray-600 mt-1" }, contact.phone),
                 e("div", { className: "flex items-center justify-between mt-1" },
-                    e("span", { className: "text-sm text-gray-600" }, contact.email),
+                    e("a", { href: `mailto:${contact.email}`, className: "text-sm text-blue-600 hover:underline" }, contact.email),
                     e("span", { className: "text-gray-400" }, MAIL_ICON)
                 )
             )
@@ -133,7 +165,7 @@ const App = () => {
         ),
         e("main", { className: "grid grid-cols-1 lg:grid-cols-3 gap-8" },
             e("div", { className: "lg:col-span-2" }, e(ImageGallery, { images: IMAGES })),
-            e("div", { className: "lg:col-span-1" },
+            e("div", { className: "lg:col-span-1 flex flex-col gap-6" },
                 e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
                     e("div", { className: "flex items-baseline mb-1" },
                         e("span", { className: "text-3xl font-bold text-gray-900" }, "$18/SF/YR")
@@ -153,19 +185,21 @@ const App = () => {
                         e("a", { href: BROCHURE_URL, target: "_blank", rel: "noopener noreferrer", className: "w-full text-center bg-white text-blue-600 font-bold py-2 px-4 rounded-md border border-blue-600 hover:bg-blue-50 transition duration-300" }, "View Brochure")
                     )
                 ),
-                e("div", { className: "mt-6" },
-                    e(PropertyDetailCard, { title: "At A Glance", data: AT_A_GLANCE_DATA, customize: true })
+                e(PropertyDetailCard, { title: "At A Glance", data: AT_A_GLANCE_DATA, customize: true })
+            )
+        ),
+        e("div", { className: "mt-8 space-y-8" },
+            e(PropertyDescription, null),
+            e(BuildingHighlights, null),
+            e("section", { id: "building-details" },
+                e(PropertyDetailCard, { title: "Building Details", data: BUILDING_DETAILS_DATA })
+            ),
+            e("section", { id: "listing-contacts" },
+                e("h2", { className: "text-2xl font-bold mb-4 text-gray-900" }, "Listing Contacts"),
+                e("div", { className: "max-w-sm" }, 
+                    e(ContactCard, { contact: CONTACT_INFO })
                 )
             )
-        ),
-        e("div", {className: "mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8"},
-            e("section", { id: "listing-contacts", className: "lg:col-span-2" },
-                e("h2", { className: "text-2xl font-bold mb-4 text-gray-900" }, "Listing Contacts"),
-                e("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-6" }, e(ContactCard, { contact: CONTACT_INFO }))
-            )
-        ),
-        e("section", { id: "building-details", className: "mt-8" },
-            e(PropertyDetailCard, { title: "Building Details", data: BUILDING_DETAILS_DATA })
         )
     );
 };
