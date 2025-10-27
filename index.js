@@ -43,9 +43,9 @@ const MAIL_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-
 // --- COMPONENTS ---
 
 const PropertyDescription = () => {
-    return e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
-        e("h2", { className: "text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-3" }, "About The Property"),
-        e("div", { className: "space-y-4 text-sm text-gray-700 mt-4 leading-relaxed" },
+    return e("div", { className: "bg-gray-800 p-6 border border-gray-700 rounded-lg shadow-sm" },
+        e("h2", { className: "text-xl font-bold text-[#D95F29] mb-4 border-b border-gray-700 pb-3" }, "About The Property"),
+        e("div", { className: "space-y-4 text-sm text-gray-300 mt-4 leading-relaxed" },
             e("p", null, "Suite C-28B at 700 W 23rd Street, located in the well-established Corporate Office Park in Panama City, FL. This 2,015 ± SF office suite offers a highly functional floor plan with a professional image and ample natural light. Designed for efficiency and comfort, the suite features a mix of private offices, open workspace, and client-friendly amenities. The property benefits from General Commercial (GC-2 | Panama City) zoning, allowing for a wide range of office and professional service uses. Estimated Operating Expenses (Additional Rent) are currently $4.00/SF."),
             e("p", null, "Corporate Office Park enjoys a prime location one block north of 23rd Street, Panama City's dominant retail and commercial corridor. The property provides excellent accessibility to Gulf Coast Medical Center, HCA Florida Gulf Coast Hospital, and Ascension Sacred Heart Bay Hospital, as well as banking, dining, and service amenities along 23rd Street. With ample surface parking and convenient ingress/egress, the property is a strong fit for professional services or administrative operations seeking a central Panama City address.")
         )
@@ -64,9 +64,9 @@ const BuildingHighlights = () => {
         "Located one block from 23rd Street retail corridor",
         "Centrally located near Gulf Coast & Sacred Heart hospitals"
     ];
-    return e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
-        e("h2", { className: "text-xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-3" }, "Building Highlights"),
-        e("ul", { className: "list-disc list-inside space-y-2 text-sm text-gray-700 mt-4" },
+    return e("div", { className: "bg-gray-800 p-6 border border-gray-700 rounded-lg shadow-sm" },
+        e("h2", { className: "text-xl font-bold text-[#D95F29] mb-4 border-b border-gray-700 pb-3" }, "Building Highlights"),
+        e("ul", { className: "list-disc list-inside space-y-2 text-sm text-gray-300 mt-4" },
             highlights.map((item, index) => e("li", { key: index }, item))
         )
     );
@@ -93,12 +93,12 @@ const ImageGallery = ({ images }) => {
     return e("div", { className: "flex flex-col gap-2" },
         e("div", { className: "relative w-full h-96 rounded-lg overflow-hidden shadow-lg" },
             e("div", { style: { backgroundImage: `url(${images[currentIndex]})` }, className: "w-full h-full bg-center bg-cover duration-500 transition-transform ease-in-out" }),
-            e("div", { className: "absolute top-1/2 -translate-y-1/2 left-4 z-10" }, e("button", { onClick: goToPrevious, className: "bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-60 transition", "aria-label": "Previous image" }, CHEVRON_LEFT_ICON)),
-            e("div", { className: "absolute top-1/2 -translate-y-1/2 right-4 z-10" }, e("button", { onClick: goToNext, className: "bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-60 transition", "aria-label": "Next image" }, CHEVRON_RIGHT_ICON))
+            e("div", { className: "absolute top-1/2 -translate-y-1/2 left-4 z-10" }, e("button", { onClick: goToPrevious, className: "bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-70 transition", "aria-label": "Previous image" }, CHEVRON_LEFT_ICON)),
+            e("div", { className: "absolute top-1/2 -translate-y-1/2 right-4 z-10" }, e("button", { onClick: goToNext, className: "bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-70 transition", "aria-label": "Next image" }, CHEVRON_RIGHT_ICON))
         ),
         e("div", { className: "w-full h-24" },
             e("div", { className: "flex space-x-2 overflow-x-auto h-full p-1" },
-                images.map((image, index) => e("div", { key: index, onClick: () => goToSlide(index), className: `h-full aspect-video rounded-md cursor-pointer flex-shrink-0 border-2 transition-all ${currentIndex === index ? 'border-blue-500' : 'border-transparent hover:border-gray-400'}` },
+                images.map((image, index) => e("div", { key: index, onClick: () => goToSlide(index), className: `h-full aspect-video rounded-md cursor-pointer flex-shrink-0 border-2 transition-all ${currentIndex === index ? 'border-[#005A9C]' : 'border-transparent hover:border-gray-600'}` },
                     e("img", { src: image, alt: `Property thumbnail ${index + 1}`, className: "w-full h-full object-cover rounded" })
                 ))
             )
@@ -107,65 +107,68 @@ const ImageGallery = ({ images }) => {
 };
 
 const PropertyDetailCard = ({ title, data, customize = false }) => {
-    return e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
-        e("div", { className: "flex justify-between items-center mb-4 border-b border-gray-200 pb-3" },
-            e("h2", { className: "text-xl font-bold text-gray-900" }, title),
-            customize && e("button", { className: "text-sm text-blue-600 hover:underline font-medium" }, "Customize")
+    return e("div", { className: "bg-gray-800 p-6 border border-gray-700 rounded-lg shadow-sm" },
+        e("div", { className: "flex justify-between items-center mb-4 border-b border-gray-700 pb-3" },
+            e("h2", { className: "text-xl font-bold text-[#D95F29]" }, title),
+            customize && e("button", { className: "text-sm text-[#005A9C] hover:underline font-medium" }, "Customize")
         ),
         e("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3" },
-            data.map((item, index) => e("div", { key: index, className: "flex justify-between py-2 border-b border-gray-100" },
-                e("span", { className: "text-sm text-gray-600" }, item.label),
-                e("span", { className: "text-sm font-semibold text-gray-800" }, item.value)
+            data.map((item, index) => e("div", { key: index, className: "flex justify-between py-2 border-b border-gray-700" },
+                e("span", { className: "text-sm text-gray-400" }, item.label),
+                e("span", { className: "text-sm font-semibold text-gray-200" }, item.value)
             ))
         )
     );
 };
 
 const ContactCard = ({ contact }) => {
-    return e("div", { className: "bg-white p-4 border border-gray-200 rounded-lg shadow-sm w-full" },
+    return e("div", { className: "bg-gray-800 p-4 border border-gray-700 rounded-lg shadow-sm w-full" },
         e("div", { className: "flex items-start space-x-4" },
             e("img", { src: contact.profileImage, alt: contact.name, className: "w-16 h-16 rounded-full object-cover" }),
             e("div", { className: "flex-1" },
                 e("div", { className: "flex items-center justify-between" },
                     e("div", { className: "flex items-center space-x-2" },
-                        e("h3", { className: "font-bold text-gray-900" }, contact.name),
-                        e("span", { className: "bg-blue-500 rounded-full p-0.5" }, PRO_BADGE_ICON)
+                        e("h3", { className: "font-bold text-white" }, contact.name),
+                        e("span", { className: "bg-[#005A9C] rounded-full p-0.5" }, PRO_BADGE_ICON)
                     ),
-                    e("span", { className: "text-blue-600" }, ID_ICON)
+                    e("span", { className: "text-[#005A9C]" }, ID_ICON)
                 ),
-                e("p", { className: "text-sm text-gray-600 mt-1" }, contact.phone),
+                e("p", { className: "text-sm text-gray-300 mt-1" }, contact.phone),
                 e("div", { className: "flex items-center justify-between mt-1" },
-                    e("a", { href: `mailto:${contact.email}`, className: "text-sm text-blue-600 hover:underline" }, contact.email),
-                    e("span", { className: "text-gray-400" }, MAIL_ICON)
+                    e("a", { href: `mailto:${contact.email}`, className: "text-sm text-[#005A9C] hover:underline" }, contact.email),
+                    e("span", { className: "text-gray-500" }, MAIL_ICON)
                 )
             )
         ),
-        e("div", { className: "mt-4 pt-4 border-t border-gray-200" }, e("img", { src: contact.companyLogo, alt: "Company Logo", className: "h-10" })),
-        e("div", { className: "mt-4 text-sm font-medium text-blue-600" },
+        e("div", { className: "flex items-center gap-4 mt-4 pt-4 border-t border-gray-700" }, 
+            e("img", { src: contact.companyLogo, alt: "Company Logo", className: "h-10 rounded" }),
+            e("a", { href: "https://www.rivieracommercial.com/", target: "_blank", rel: "noopener noreferrer", className: "text-sm font-medium text-[#005A9C] hover:underline" }, "RivieraCommercial.com")
+        ),
+        e("div", { className: "mt-4 text-sm font-medium text-[#005A9C]" },
             e("button", { className: "hover:underline" }, "View Profile")
         )
     );
 };
 
 const App = () => {
-    return e("div", { className: "max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 text-gray-800" },
-        e("header", { className: "flex flex-col md:flex-row justify-between items-start md:items-center mb-4" },
+    return e("div", { className: "max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 text-gray-200" },
+        e("header", { className: "flex flex-col md:flex-row justify-between items-start md:items-center mb-6" },
             e("div", null,
-                e("h1", { className: "text-3xl font-bold text-gray-900" }, "700 W 23rd St"),
-                e("p", { className: "text-gray-600" }, "Panama City, FL 32405")
+                e("h1", { className: "text-3xl font-bold text-[#D95F29]" }, "700 W 23rd St"),
+                e("p", { className: "text-gray-400" }, "Panama City, FL 32405")
             )
         ),
         e("main", { className: "grid grid-cols-1 lg:grid-cols-3 gap-8" },
             e("div", { className: "lg:col-span-2" }, e(ImageGallery, { images: IMAGES })),
             e("div", { className: "lg:col-span-1 flex flex-col gap-6" },
-                e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
+                e("div", { className: "bg-gray-800 p-6 border border-gray-700 rounded-lg shadow-sm" },
                     e("div", { className: "flex items-baseline mb-1" },
-                        e("span", { className: "text-3xl font-bold text-gray-900" }, "$18/SF/YR")
+                        e("span", { className: "text-3xl font-bold text-white" }, "$18/SF/YR")
                     ),
-                    e("p", { className: "text-sm text-gray-600 mb-4" }, "$1.50/SF/MO"),
-                    e("div", { className: "mb-4 py-4 border-y border-gray-200" },
-                        e("h3", { className: "font-semibold text-gray-800" }, "Corporate Park"),
-                        e("p", { className: "text-sm text-gray-600" }, "Office | 1 space available | 2,014 SqFt")
+                    e("p", { className: "text-sm text-gray-400 mb-4" }, "$1.50/SF/MO"),
+                    e("div", { className: "py-4 border-y border-gray-700" },
+                        e("h3", { className: "font-semibold text-gray-200" }, "Corporate Park"),
+                        e("p", { className: "text-sm text-gray-400" }, "Office | 1 space available | 2,014 SqFt")
                     )
                 ),
                 e(PropertyDetailCard, { title: "Quick Take", data: AT_A_GLANCE_DATA, customize: true })
@@ -178,7 +181,7 @@ const App = () => {
                 e(PropertyDetailCard, { title: "Building Details", data: BUILDING_DETAILS_DATA })
             ),
             e("section", { id: "listing-contacts" },
-                e("h2", { className: "text-2xl font-bold mb-4 text-gray-900" }, "Listing Contacts"),
+                e("h2", { className: "text-2xl font-bold mb-4 text-[#D95F29]" }, "Listing Contacts"),
                 e("div", { className: "max-w-sm" }, 
                     e(ContactCard, { contact: CONTACT_INFO })
                 )
