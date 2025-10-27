@@ -174,18 +174,9 @@ const App = () => {
                     e("div", { className: "mb-4 py-4 border-y border-gray-200" },
                         e("h3", { className: "font-semibold text-gray-800" }, "Corporate Park"),
                         e("p", { className: "text-sm text-gray-600" }, "Office | 1 space available | 2,014 SqFt")
-                    ),
-                    e("div", { className: "text-sm text-gray-600 flex items-center space-x-4 mb-6" },
-                        e("span", null, "496 days on market"),
-                        e("span", { className: "h-1 w-1 bg-gray-400 rounded-full" }),
-                        e("span", null, "Updated 19 days ago")
-                    ),
-                    e("div", { className: "flex space-x-3" },
-                        e("button", { className: "w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300" }, "Request Info"),
-                        e("a", { href: BROCHURE_URL, target: "_blank", rel: "noopener noreferrer", className: "w-full text-center bg-white text-blue-600 font-bold py-2 px-4 rounded-md border border-blue-600 hover:bg-blue-50 transition duration-300" }, "View Brochure")
                     )
                 ),
-                e(PropertyDetailCard, { title: "At A Glance", data: AT_A_GLANCE_DATA, customize: true })
+                e(PropertyDetailCard, { title: "Quick Take", data: AT_A_GLANCE_DATA, customize: true })
             )
         ),
         e("div", { className: "mt-8 space-y-8" },
