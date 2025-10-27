@@ -43,8 +43,8 @@
 
         const script = document.createElement('script');
         script.type = 'module';
-        const blob = new Blob([jsCode], { type: 'application/javascript' });
-        script.src = URL.createObjectURL(blob);
+        // Use textContent to inject the script directly, which is more reliable than a blob URL.
+        script.textContent = jsCode;
         document.body.appendChild(script);
 
       } catch (error) {
