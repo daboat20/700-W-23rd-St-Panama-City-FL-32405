@@ -4,13 +4,11 @@ const e = React.createElement;
 // --- CONSTANTS ---
 const BROCHURE_URL = 'https://example.com/property-brochure.pdf';
 
-// Using placeholder images as local files cannot be accessed.
 const IMAGES = [
-    'https://images.unsplash.com/photo-1560518883-ce09059ee44a?q=80&w=3000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=3000&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=3000&auto=format&fit=crop',
-    'https://maps.googleapis.com/maps/api/staticmap?center=30.1764,-85.6603&zoom=15&size=1200x800&maptype=roadmap&markers=color:red%7C30.1764,-85.6603&key=YOUR_API_KEY',
-    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=3000&auto=format&fit=crop'
+    './images/f1ddaa365240411c984c0774e0344cee_3000x2000_resize.jpg',
+    './images/0d0d31be05a54db784d3a4e7b54855a3_3000x2000_resize.jpg',
+    './images/0ad33502-b93e-4a72-a8d2-46a1c0d5d527.png',
+    './images/staticmap.png',
 ];
 
 const AT_A_GLANCE_DATA = [
@@ -35,7 +33,7 @@ const BUILDING_DETAILS_DATA = [
 
 const COMPANY_LOGO_BASE64 = 'PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMS42NCAzMi41MzYxVjcuNDY0MDlIMjIuMTE2VjEyLjEzNjFIMTYuNjQ0VjE3LjM4MDFIMjEuNTE2VjIyLjA1MjFIMTYuNjQ0VjI3Ljg2NDFIMjIuMjZWMy4yNTM2MUgxMS42NFoiIGZpbGw9IiMxRTNBOEEiLz48cGF0aCBkPSJNMjUuNzQgMzIuNTM2MVY3LjQ2NDA5SDMwLjc0NFYyNy44NjQxSDM4LjcyNFYzMi41MzYxSDI1Ljc0WiIgZmlsbD0iIzFFM0E4QSIvPjxwYXRoIGQ9Ik00Mi4zNDggMzIuNTM2MVY3LjQ2NDA5SDU0LjQ5MkM1Ni45NjQgNy40NjQwOSA1OC43NjQgNy45MzYwOSA1OS44OTIgOC44ODAwOUM2MS4wMiA5LjgyNDA5IDYxLjU4NCAxMS4xMjQxIDYxLjU4NCAxMi43ODAxQzYxLjU4NCAxNC4xNjAxIDYxLjE2NCAxNS4zMTIxIDYwLjMyNCAxNi4yMzYxQzU5LjQ4NCAxNy4xNjAxIDU4LjMzMiAxNy43NzIxIDU2Ljg2OCAxOC4wNzIxTDYxLjA0NCAyNi4wNTIxTDYyLjEgMjcuODY0MVYyOC4wMDgxTDU3LjA2IDMyLjUzNjFINTYuNTMyTDUyLjU0OCAyNi42MDQxSDQ3LjM0VjMyLjUzNjFINDIuMzQ4Wk00Ny4zNCAyMi4wNTIxSDUzLjYwNEM1NTQuMDIgMjIuMDUyMSA1Ni4wNTIgMjEuNzgxIDU2LjcgMjEuMjM2MUM1Ny4zNDggMjAuNjkyMSA1Ny42NzIgMTkuOTAwMSA1Ny42NzIgMTguODYwMUM1Ny42NzIgMTcuODIwMSA1Ny4zNDggMTcuMDI4MSA1Ni4yIDE2LjQ4NDFDNTYuMDUyIDE1LjkwODEgNTUuMDIgMTUuNjIwMSA1My42MDQgMTUuNjIwMUg0Ny4zNFYyMi4wNTIxWiIgZmlsbD0iIzFFM0E4QSIvPjx0ZXh0IHg9IjY1IiB5PSIyNyIgZm9udC1mYW1pbHk9IkxhdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjM0I4MkY2Ij5SRUFMVFk8L3RleHQ+PC9zdmc+';
 
-const CONTACT_INFO = { name: 'David Boatwright', phone: '850.527.1623', email: 'David.Boatwright@svn.com', profileImage: 'https://randomuser.me/api/portraits/men/75.jpg', companyLogo: `data:image/svg+xml;base64,${COMPANY_LOGO_BASE64}` };
+const CONTACT_INFO = { name: 'David Boatwright', phone: '850.527.1623', email: 'David.Boatwright@svn.com', profileImage: './images/Google Chrome profile pic.png', companyLogo: `data:image/svg+xml;base64,${COMPANY_LOGO_BASE64}` };
 
 const NAV_LINKS = ["Listing Contacts", "Building Details", "About Property", "Spaces", "Map", "Climate Risk", "Demographics", "Location Insights", "Similar Properties"];
 
