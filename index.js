@@ -6,13 +6,13 @@ const e = React.createElement;
 const BROCHURE_URL = 'https://example.com/property-brochure.pdf';
 
 // =================================================================
-// === YOUR NEW PROPERTY PHOTOS ===
+// === YOUR PROPERTY PHOTOS (from the 'images' folder) ===
 // =================================================================
 const IMAGES = [
-    'https://images.crexi.com/lease-assets/1031185/8e9a465247184f79baac0bf483ddc24b_3000x2000_resize.jpg',
-    'https://images.crexi.com/lease-assets/1031185/0d0d31be05a54db784d3a4e7b54855a3_3000x2000_resize.jpg',
-    'https://images.crexi.com/lease-assets/1031185/suites/2329936/98a3adc905224082b57b770141a1f038.jpg',
-    'https://maps.google.com/maps/api/staticmap?key=AIzaSyBhX7KNb38-KTQg-2-3IdpC4mQnh79h-W0&size=562x285&zoom=15&markers=color:0x2b7de3|icon:https://files.crexi.com/web/content/img/icons/map-marker-alt-blue.png|30.1913888,-85.6711761',
+    './images/photo1.jpg',
+    './images/photo2.jpg',
+    './images/photo3.jpg',
+    './images/map.jpg',
 ];
 const AT_A_GLANCE_DATA = [
     { label: "Property Type", value: "Office, Industrial" }, { label: "Sub Type", value: "Executive Office, Medical Office" },
@@ -150,8 +150,8 @@ const App = () => {
             )
         ),
         e("main", { className: "grid grid-cols-1 lg:grid-cols-3 gap-8" },
-            e("div", { className: "lg:col-span-2" }, e(ImageGallery, { images: IMAGES })),
-            e("div", { className: "lg:col-span-1" },
+            e("div", { className: "lg/col-span-2" }, e(ImageGallery, { images: IMAGES })),
+            e("div", { className: "lg/col-span-1" },
                 e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
                     e("div", { className: "flex items-baseline mb-4" }, e("span", { className: "text-3xl font-bold text-gray-900" }, "$20/SF/YR")),
                     e("div", { className: "text-sm text-gray-600 flex items-center space-x-4 mb-6" },
