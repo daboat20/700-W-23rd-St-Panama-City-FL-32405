@@ -9,10 +9,10 @@ const BROCHURE_URL = 'https://example.com/property-brochure.pdf';
 // === YOUR PROPERTY PHOTOS (from the 'images' folder) ===
 // =================================================================
 const IMAGES = [
-    './images/photo1.jpg',
-    './images/photo2.jpg',
-    './images/photo3.jpg',
-    './images/map.jpg',
+    './images/f1ddaa365240411c984c0774e0344cee_3000x2000_resize.jpg',
+    './images/0d0d31be05a54db784d3a4e7b54855a3_3000x2000_resize.jpg',
+    './images/0ad33502-b93e-4a72-a8d2-46a1c0d5d527.png',
+    './images/staticmap.png',
 ];
 const AT_A_GLANCE_DATA = [
     { label: "Property Type", value: "Office, Industrial" }, { label: "Sub Type", value: "Executive Office, Medical Office" },
@@ -150,8 +150,8 @@ const App = () => {
             )
         ),
         e("main", { className: "grid grid-cols-1 lg:grid-cols-3 gap-8" },
-            e("div", { className: "lg/col-span-2" }, e(ImageGallery, { images: IMAGES })),
-            e("div", { className: "lg/col-span-1" },
+            e("div", { className: "lg:col-span-2" }, e(ImageGallery, { images: IMAGES })),
+            e("div", { className: "lg:col-span-1" },
                 e("div", { className: "bg-white p-6 border border-gray-200 rounded-lg shadow-sm" },
                     e("div", { className: "flex items-baseline mb-4" }, e("span", { className: "text-3xl font-bold text-gray-900" }, "$20/SF/YR")),
                     e("div", { className: "text-sm text-gray-600 flex items-center space-x-4 mb-6" },
