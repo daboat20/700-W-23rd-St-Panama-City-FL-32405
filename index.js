@@ -34,10 +34,6 @@ const BUILDING_DETAILS_DATA = [
 const CONTACT_INFO = { name: 'David Boatwright', phone: '850.527.1623', email: 'David.Boatwright@svn.com', profileImage: './images/Google Chrome profile pic.png', companyLogo: './images/Riviera Commercial .jpg' };
 
 // Icons as React elements
-const NOTE_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" }));
-const PRINT_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" }));
-const SHARE_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" }));
-const SAVE_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" }));
 const MAP_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" }), e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z" }));
 const STREET_VIEW_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M12 12a3 3 0 100-6 3 3 0 000 6z" }), e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M21 12c-1.885 4.47-5.28 7-9 7s-7.115-2.53-9-7c1.885-4.47 5.28-7 9-7s7.115 2.53 9 7z" }));
 const PHOTOS_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" }));
@@ -133,12 +129,6 @@ const App = () => {
             e("div", null,
                 e("h1", { className: "text-3xl font-bold text-gray-900" }, "700 W 23rd St"),
                 e("p", { className: "text-gray-600" }, "Panama City, FL 32405")
-            ),
-            e("div", { className: "flex items-center space-x-4 mt-4 md:mt-0 text-sm font-medium text-gray-700" },
-                e("button", { className: "flex items-center space-x-2 hover:text-blue-600" }, NOTE_ICON, e("span", null, "Notes")),
-                e("button", { className: "flex items-center space-x-2 hover:text-blue-600" }, PRINT_ICON, e("span", null, "Print")),
-                e("button", { className: "flex items-center space-x-2 hover:text-blue-600" }, SHARE_ICON, e("span", null, "Share")),
-                e("button", { className: "flex items-center space-x-2 hover:text-blue-600" }, SAVE_ICON, e("span", null, "Save"))
             )
         ),
         e("main", { className: "grid grid-cols-1 lg:grid-cols-3 gap-8" },
