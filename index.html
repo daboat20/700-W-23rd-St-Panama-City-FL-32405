@@ -27,6 +27,35 @@
 </head>
 <body class="bg-gray-50">
   <div id="root"></div>
-  <script type="text/babel" data-presets="react,typescript" data-type="module" src="./index.tsx"></script>
+  <script type="module">
+    async function loadApp() {
+      try {
+        const response = await fetch('./index.tsx');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const tsxCode = await response.text();
+        
+        const jsCode = Babel.transform(tsxCode, {
+          presets: ['react', 'typescript'],
+          filename: 'index.tsx' // For better error messages
+        }).code;
+
+        const script = document.createElement('script');
+        script.type = 'module';
+        const blob = new Blob([jsCode], { type: 'application/javascript' });
+        script.src = URL.createObjectURL(blob);
+        document.body.appendChild(script);
+
+      } catch (error) {
+        console.error('Failed to load and transpile the application:', error);
+        const rootDiv = document.getElementById('root');
+        if (rootDiv) {
+            rootDiv.innerHTML = '<div style="padding: 2rem; text-align: center; font-family: sans-serif; color: red;"><h1>Error</h1><p>Could not load application. See console for details.</p></div>';
+        }
+      }
+    }
+    loadApp();
+  </script>
 </body>
 </html>
