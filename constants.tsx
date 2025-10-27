@@ -1,3 +1,4 @@
+import React from 'react';
 import { DetailItem } from './types';
 
 // To update the brochure link, change the URL below.
@@ -10,6 +11,8 @@ export const IMAGES: string[] = [
     'https://images.unsplash.com/photo-1600585152225-358b54d6a637?q=80&w=1974&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=2070&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop',
 ];
 
 export const AT_A_GLANCE_DATA: DetailItem[] = [
@@ -45,13 +48,17 @@ export const BUILDING_DETAILS_DATA: DetailItem[] = [
     { label: "APN", value: "34034-007-000" },
 ];
 
+// This is the pre-encoded SVG string.
+const COMPANY_LOGO_BASE64 = 'PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMS42NCAzMi41MzYxVjcuNDY0MDlIMjIuMTE2VjEyLjEzNjFIMTYuNjQ0VjE3LjM4MDFIMjEuNTE2VjIyLjA1MjFIMTYuNjQ0VjI3Ljg2NDFIMjIuMjZWMy4yNTM2MUgxMS42NFoiIGZpbGw9IiMxRTNBOEEiLz48cGF0aCBkPSJNMjUuNzQgMzIuNTM2MVY3LjQ2NDA5SDMwLjc0NFYyNy44NjQxSDM4LjcyNFYzMi41MzYxSDI1Ljc0WiIgZmlsbD0iIzFFM0E4QSIvPjxwYXRoIGQ9Ik00Mi4zNDggMzIuNTM2MVY3LjQ2NDA5SDU0LjQ5MkM1Ni45NjQgNy40NjQwOSA1OC43NjQgNy45MzYwOSA1OS44OTIgOC44ODAwOUM2MS4wMiA5LjgyNDA5IDYxLjU4NCAxMS4xMjQxIDYxLjU4NCAxMi43ODAxQzYxLjU4NCAxNC4xNjAxIDYxLjE2NCAxNS4zMTIxIDYwLjMyNCAxNi4yMzYxQzU5LjQ4NCAxNy4xNjAxIDU4LjMzMiAxNy43NzIxIDU2Ljg2OCAxOC4wNzIxTDYxLjA0NCAyNi4wNTIxTDYyLjEgMjcuODY0MVYyOC4wMDgxTDU3LjA2IDMyLjUzNjFINTYuNTMyTDUyLjU0OCAyNi42MDQxSDQ3LjM0VjMyLjUzNjFINDIuMzQ4Wk00Ny4zNCAyMi4wNTIxSDUzLjYwNEM1NT4wMiAyMi4wNTIxIDU2LjA1MiAyMS43ODAxIDU2LjcgMjEuMjM2MUM1Ny4zNDggMjAuNjkyMSA1Ny42NzIgMTkuOTAwMSA1Ny42NzIgMTguODYwMUM1Ny42NzIgMTcuODIwMSA1Ny4zNDggMTcuMDI4MSA1Ni43IDE2LjQ4NDFDNTYuMDUyIDE1LjkwODEgNTUuMDIgMTUuNjIwMSA1My42MDQgMTUuNjIwMUg0Ny4zNFYyMi4wNTIxWiIgZmlsbD0iIzFFM0E4QSIvPjx0ZXh0IHg9IjY1IiB5PSIyNyIgZm9udC1mYW1pbHk9IkxhdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjM0I4MkY2Ij5SRUFMVFk8L3RleHQ+PC9zdmc+';
+
+
 // To change the contact's profile picture, update the profileImage URL below.
 export const CONTACT_INFO = {
     name: 'Chris McCall, SIOR',
     phone: '850.249.3623',
     email: 'user@c*****s.com',
     profileImage: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1776&auto=format&fit=crop',
-    companyLogo: 'https://via.placeholder.com/100x40/cccccc/808080?text=Logo',
+    companyLogo: `data:image/svg+xml;base64,${COMPANY_LOGO_BASE64}`,
 };
 
 export const NAV_LINKS = [
