@@ -34,9 +34,6 @@ const BUILDING_DETAILS_DATA = [
 const CONTACT_INFO = { name: 'David Boatwright', phone: '850.527.1623', email: 'David.Boatwright@svn.com', profileImage: './images/Google Chrome profile pic.png', companyLogo: './images/Riviera Commercial .jpg' };
 
 // Icons as React elements
-const MAP_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" }), e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z" }));
-const STREET_VIEW_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M12 12a3 3 0 100-6 3 3 0 000 6z" }), e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M21 12c-1.885 4.47-5.28 7-9 7s-7.115-2.53-9-7c1.885-4.47 5.28-7 9-7s7.115 2.53 9 7z" }));
-const PHOTOS_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" }));
 const CHEVRON_LEFT_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-6 w-6", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M15 19l-7-7 7-7" }));
 const CHEVRON_RIGHT_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-6 w-6", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M9 5l7 7-7 7" }));
 const PRO_BADGE_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-4 w-4 text-white", viewBox: "0 0 20 20", fill: "currentColor" }, e("path", { fillRule: "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z", clipRule: "evenodd" }));
@@ -97,12 +94,7 @@ const ImageGallery = ({ images }) => {
         e("div", { className: "relative w-full h-96 rounded-lg overflow-hidden shadow-lg" },
             e("div", { style: { backgroundImage: `url(${images[currentIndex]})` }, className: "w-full h-full bg-center bg-cover duration-500 transition-transform ease-in-out" }),
             e("div", { className: "absolute top-1/2 -translate-y-1/2 left-4 z-10" }, e("button", { onClick: goToPrevious, className: "bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-60 transition", "aria-label": "Previous image" }, CHEVRON_LEFT_ICON)),
-            e("div", { className: "absolute top-1/2 -translate-y-1/2 right-4 z-10" }, e("button", { onClick: goToNext, className: "bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-60 transition", "aria-label": "Next image" }, CHEVRON_RIGHT_ICON)),
-            e("div", { className: "absolute bottom-4 left-4 flex space-x-2 z-10" },
-                e("button", { className: "flex items-center space-x-2 bg-white text-gray-800 px-3 py-1.5 rounded-md text-sm font-medium shadow hover:bg-gray-100 transition" }, MAP_ICON, e("span", null, "View Map")),
-                e("button", { className: "flex items-center space-x-2 bg-white text-gray-800 px-3 py-1.5 rounded-md text-sm font-medium shadow hover:bg-gray-100 transition" }, STREET_VIEW_ICON, e("span", null, "Street View"))
-            ),
-            e("div", { className: "absolute bottom-4 right-4 z-10" }, e("button", { className: "flex items-center space-x-2 bg-white text-gray-800 px-3 py-1.5 rounded-md text-sm font-medium shadow hover:bg-gray-100 transition" }, PHOTOS_ICON, e("span", null, `${images.length} Photos`)))
+            e("div", { className: "absolute top-1/2 -translate-y-1/2 right-4 z-10" }, e("button", { onClick: goToNext, className: "bg-black bg-opacity-40 text-white rounded-full p-2 hover:bg-opacity-60 transition", "aria-label": "Next image" }, CHEVRON_RIGHT_ICON))
         ),
         e("div", { className: "w-full h-24" },
             e("div", { className: "flex space-x-2 overflow-x-auto h-full p-1" },
