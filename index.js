@@ -31,11 +31,7 @@ const BUILDING_DETAILS_DATA = [
     { label: "Zoning", value: "COMMERCIAL" }, { label: "APN", value: "34034-007-000" },
 ];
 
-const COMPANY_LOGO_BASE64 = 'PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMS42NCAzMi41MzYxVjcuNDY0MDlIMjIuMTE2VjEyLjEzNjFIMTYuNjQ0VjE3LjM4MDFIMjEuNTE2VjIyLjA1MjFIMTYuNjQ0VjI3Ljg2NDFIMjIuMjZWMy4yNTM2MUgxMS42NFoiIGZpbGw9IiMxRTNBOEEiLz48cGF0aCBkPSJNMjUuNzQgMzIuNTM2MVY3LjQ2NDA5SDMwLjc0NFYyNy44NjQxSDM4LjcyNFYzMi41MzYxSDI1Ljc0WiIgZmlsbD0iIzFFM0E4QSIvPjxwYXRoIGQ9Ik00Mi4zNDggMzIuNTM2MVY3LjQ2NDA5SDU0LjQ5MkM1Ni45NjQgNy40NjQwOSA1OC43NjQgNy45MzYwOSA1OS44OTIgOC44ODAwOUM2MS4wMiA5LjgyNDA5IDYxLjU4NCAxMS4xMjQxIDYxLjU4NCAxMi43ODAxQzYxLjU4NCAxNC4xNjAxIDYxLjE2NCAxNS4zMTIxIDYwLjMyNCAxNi4yMzYxQzU5LjQ4NCAxNy4xNjAxIDU4LjMzMiAxNy43NzIxIDU2Ljg2OCAxOC4wNzIxTDYxLjA0NCAyNi4wNTIxTDYyLjEgMjcuODY0MVYyOC4wMDgxTDU3LjA2IDMyLjUzNjFINTYuNTMyTDUyLjU0OCAyNi42MDQxSDQ3LjM0VjMyLjUzNjFINDIuMzQ4Wk00Ny4zNCAyMi4wNTIxSDUzLjYwNEM1NTQuMDIgMjIuMDUyMSA1Ni4wNTIgMjEuNzgxIDU2LjcgMjEuMjM2MUM1Ny4zNDggMjAuNjkyMSA1Ny42NzIgMTkuOTAwMSA1Ny42NzIgMTguODYwMUM1Ny42NzIgMTcuODIwMSA1Ny4zNDggMTcuMDI4MSA1Ni4yIDE2LjQ4NDFDNTYuMDUyIDE1LjkwODEgNTUuMDIgMTUuNjIwMSA1My42MDQgMTUuNjIwMUg0Ny4zNFYyMi4wNTIxWiIgZmlsbD0iIzFFM0E4QSIvPjx0ZXh0IHg9IjY1IiB5PSIyNyIgZm9udC1mYW1pbHk9IkxhdG8sIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjM0I4MkY2Ij5SRUFMVFk8L3RleHQ+PC9zdmc+';
-
-const CONTACT_INFO = { name: 'David Boatwright', phone: '850.527.1623', email: 'David.Boatwright@svn.com', profileImage: './images/Google Chrome profile pic.png', companyLogo: `data:image/svg+xml;base64,${COMPANY_LOGO_BASE64}` };
-
-const NAV_LINKS = ["Listing Contacts", "Building Details", "About Property", "Spaces", "Map", "Climate Risk", "Demographics", "Location Insights", "Similar Properties"];
+const CONTACT_INFO = { name: 'David Boatwright', phone: '850.527.1623', email: 'David.Boatwright@svn.com', profileImage: './images/Google Chrome profile pic.png', companyLogo: './images/Riviera Commercial .jpg' };
 
 // Icons as React elements
 const NOTE_ICON = e("svg", { xmlns: "http://www.w3.org/2000/svg", className: "h-5 w-5", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, e("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" }));
@@ -110,37 +106,28 @@ const ContactCard = ({ contact }) => {
         e("div", { className: "flex items-start space-x-4" },
             e("img", { src: contact.profileImage, alt: contact.name, className: "w-16 h-16 rounded-full object-cover" }),
             e("div", { className: "flex-1" },
-                e("div", { className: "flex items-center space-x-2" },
-                    e("h3", { className: "font-bold text-gray-900" }, contact.name),
-                    e("span", { className: "bg-blue-500 rounded-full p-0.5" }, PRO_BADGE_ICON),
+                e("div", { className: "flex items-center justify-between" },
+                    e("div", { className: "flex items-center space-x-2" },
+                        e("h3", { className: "font-bold text-gray-900" }, contact.name),
+                        e("span", { className: "bg-blue-500 rounded-full p-0.5" }, PRO_BADGE_ICON)
+                    ),
                     e("span", { className: "text-blue-600" }, ID_ICON)
                 ),
                 e("p", { className: "text-sm text-gray-600 mt-1" }, contact.phone),
-                e("div", { className: "flex items-center mt-1" },
+                e("div", { className: "flex items-center justify-between mt-1" },
                     e("span", { className: "text-sm text-gray-600" }, contact.email),
-                    e("span", { className: "ml-2 text-gray-400" }, MAIL_ICON)
+                    e("span", { className: "text-gray-400" }, MAIL_ICON)
                 )
             )
         ),
-        e("div", { className: "mt-4 pt-4 border-t border-gray-200" }, e("img", { src: contact.companyLogo, alt: "Company Logo", className: "h-8" })),
-        e("div", { className: "mt-4 text-sm font-medium text-blue-600 space-x-4" },
-            e("button", { className: "hover:underline" }, "Chat"),
+        e("div", { className: "mt-4 pt-4 border-t border-gray-200" }, e("img", { src: contact.companyLogo, alt: "Company Logo", className: "h-10" })),
+        e("div", { className: "mt-4 text-sm font-medium text-blue-600" },
             e("button", { className: "hover:underline" }, "View Profile")
         )
     );
 };
 
 const App = () => {
-    const handleNavClick = (event, link) => {
-        event.preventDefault();
-        const elementId = link.toLowerCase().replace(/\s+/g, '-');
-        const element = document.getElementById(elementId);
-        if (element) {
-            // The behavior 'smooth' will scroll smoothly
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    };
-
     return e("div", { className: "max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 text-gray-800" },
         e("header", { className: "flex flex-col md:flex-row justify-between items-start md:items-center mb-4" },
             e("div", null,
@@ -181,21 +168,13 @@ const App = () => {
                 )
             )
         ),
-        e("nav", { className: "sticky top-0 bg-gray-50/95 backdrop-blur-sm z-20 mt-8 border-b border-gray-300" },
-            e("div", { className: "flex space-x-6 overflow-x-auto whitespace-nowrap -mb-px" },
-                NAV_LINKS.map((link, index) => e("a", {
-                    key: index,
-                    href: `#${link.toLowerCase().replace(/\s+/g, '-')}`,
-                    onClick: event => handleNavClick(event, link),
-                    className: `py-3 px-1 text-sm font-medium transition-colors duration-200 ${index === 1 ? 'border-b-2 border-blue-600 text-blue-600' : 'border-b-2 border-transparent text-gray-600 hover:text-blue-600 hover:border-gray-400'}`
-                }, link))
+        e("div", {className: "mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8"},
+            e("section", { id: "listing-contacts", className: "lg:col-span-2" },
+                e("h2", { className: "text-2xl font-bold mb-4 text-gray-900" }, "Listing Contacts"),
+                e("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-6" }, e(ContactCard, { contact: CONTACT_INFO }))
             )
         ),
-        e("section", { id: "listing-contacts", className: "pt-8" },
-            e("h2", { className: "text-2xl font-bold mb-4 text-gray-900" }, "Listing Contacts"),
-            e("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" }, e(ContactCard, { contact: CONTACT_INFO }))
-        ),
-        e("section", { id: "building-details", className: "pt-8" },
+        e("section", { id: "building-details", className: "mt-8" },
             e(PropertyDetailCard, { title: "Building Details", data: BUILDING_DETAILS_DATA })
         )
     );
