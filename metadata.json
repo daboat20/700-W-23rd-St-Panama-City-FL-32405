@@ -1,5 +1,0 @@
-{
-    "name": "Real Estate Property Listing",
-    "description": "A single-page, responsive property listing application designed to showcase a commercial real estate property with an image gallery, detailed specifications, and contact information, built with React and Tailwind CSS.",
-    "requestFramePermissions": []
-  }
